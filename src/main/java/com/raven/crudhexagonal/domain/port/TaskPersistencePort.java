@@ -11,7 +11,7 @@ public interface TaskPersistencePort {
 
     void deleteTask(Long id);
 
-    TaskModel updateTask(Long id);
+    TaskModel updateTask(Long id, String title, String content);
 
     TaskModel createTask(TaskModel taskModel);
 

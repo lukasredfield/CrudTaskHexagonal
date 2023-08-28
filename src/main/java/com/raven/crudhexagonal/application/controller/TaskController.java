@@ -49,7 +49,7 @@ public class TaskController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<TaskResponse> updateTask(@RequestBody TaskRequest taskRequest, @PathVariable Long id){
-        TaskResponse taskResponse = TaskRestMapper.INSTANCE.toTaskResponse(this.taskServicePort.updateTask(id));
+        TaskResponse taskResponse = TaskRestMapper.INSTANCE.toTaskResponse(this.taskServicePort.updateTask(id, taskRequest.getTitle(), taskRequest.getContent()));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(taskResponse);
     }

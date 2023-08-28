@@ -1,10 +1,8 @@
 package com.raven.crudhexagonal.domain.port;
 
 import com.raven.crudhexagonal.domain.model.TaskModel;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 public interface TaskServicePort {
@@ -13,7 +11,7 @@ public interface TaskServicePort {
 
     void deleteTask(Long id);
 
-    TaskModel updateTask(Long id);
+    TaskModel updateTask(Long id, String title, String content);
 
     TaskModel createTask(TaskModel taskModel);
 

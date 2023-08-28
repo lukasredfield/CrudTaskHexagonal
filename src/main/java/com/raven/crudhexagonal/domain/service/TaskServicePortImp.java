@@ -4,10 +4,8 @@ import com.raven.crudhexagonal.domain.model.TaskModel;
 import com.raven.crudhexagonal.domain.port.TaskPersistencePort;
 import com.raven.crudhexagonal.domain.port.TaskServicePort;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RequiredArgsConstructor
@@ -26,8 +24,8 @@ public class TaskServicePortImp implements TaskServicePort {
     }
 
     @Override
-    public TaskModel updateTask(Long id) {
-        return this.taskPersistencePort.updateTask(id);
+    public TaskModel updateTask(Long id, String title, String content) {
+        return this.taskPersistencePort.updateTask(id, title, content);
     }
 
     @Override

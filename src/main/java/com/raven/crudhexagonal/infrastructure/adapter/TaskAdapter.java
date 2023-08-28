@@ -30,11 +30,11 @@ public class TaskAdapter implements TaskPersistencePort {
     }
 
     @Override
-    public TaskModel updateTask(Long id) {
+    public TaskModel updateTask(Long id, String title, String content) {
         TaskModel findTask = this.getTaskById(id);
-        TaskEntity updateTask = new TaskEntity();
-        updateTask.setTitle(findTask.getTitle());
-        updateTask.setContent(findTask.getContent());
+        findTask.setTitle(title);
+        findTask.setContent(content);
+        TaskEntity updateTask = TaskMapper.INSTANCE.toTaskEntity(findTask);
         this.taskRepository.save(updateTask);
         return TaskMapper.INSTANCE.toTaskmodel(updateTask);
     }
